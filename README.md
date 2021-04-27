@@ -1,2 +1,3 @@
-# ejercicio13_javascript1
+# ejercicio13 Javascript 
 Ejemplos de JavaScript Basicos
+Ejercicios y ejemplos para identificar los conceptos claves de javascript
