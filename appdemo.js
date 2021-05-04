@@ -26,6 +26,7 @@ function changeEstilo(newEstilo) {
   var elem = document.getElementById("para3");
   //  console.log(newEstilo)
   elem.className = newEstilo;
+  console.log(elem.getElementsByClassName());
 }
 
 function changeTexto(newTexto) {
@@ -57,31 +58,74 @@ function changeTexto(newTexto) {
      p1.innerHTML = p0;     
      texto.appendChild(p1);
      }
+     
+function llenarparrafos2(){
+  var p0 = "Elemento ";
+
+     var lista = document.getElementById("mparra2");
+     for(i = 1; i <= 10; i++){
+      var E1 = document.createElement("li");
+      E1.innerHTML = p0;      
+      lista.appendChild(E1);
+    }
+}
+
+     function mistitulos() {
+      var t0 = prompt("Digite el titulo: ");
+      //"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ratione a commodi amet nesciunt corrupti facilis molestias beatae fuga voluptates, hic libero alias accusantium possimus quisquam sint soluta reiciendis recusandae.";
+ 
+      var texto = document.getElementById("mtitulo");
+      //console.log(texto);
+      var t3 = document.createElement("h3");
+      t3.innerHTML = t0;     
+      texto.appendChild(t3);
+      console.log(texto.className)      
+      //alert(texto.className)
+      t3.className = "caja2"      
+      console.log(t3.className)      
+      }
 
      function llenarYear(){
-        select = document.getElementById("año");
-        for(i = 2000; i <= 2050; i++){
-          option = document.createElement("option");
+      var select = document.getElementById("año");
+        for(i = 2000; i <= 2022; i++){
+          var option = document.createElement("option");
           option.value = i;
           option.text = i;
           select.appendChild(option);
         }
+        var meses = ["Enero", "Febrero", "Marzo", "Abril"]
+        var select = document.getElementById("mes");
+        for(i = 0; i <= 3; i++){
+          var option = document.createElement("option");
+          option.value = i;
+          option.text = meses[i];
+          select.appendChild(option);
+        }
+        var select = document.getElementById("dia");
+        for(i = 1; i <= 30; i++){
+          var option = document.createElement("option");
+          option.value = i;
+          option.text = i;
+          select.appendChild(option);
+        }    
      }
 
      function llenarDias(){
-         Dias=["Lunes", "Martes", "Miercoles", "Jueves","Viernes","Sabado", "Domingo"];
-        select = document.getElementById("dia");
+         Dias=["Lunes", "Martes", "Miercoles", "Jueves","Viernes","Sabado", "Domingo", "Ninguno"];        
+        select = document.getElementById("diatexto");
+        
         for(i = 0; i <= 7; i++){
           option = document.createElement("option");
           option.value = i;
           option.text = Dias[i];
           select.appendChild(option);
         }
+        
      }
 
  function generaTabla() {   
         // get the reference for the body
-        var mybody = document.getElementsByTagName("body")[0];
+        var mybody = document.getElementById("mtabla");
 
         // creates <table> and <tbody> elements
         mytable     = document.createElement("table");
@@ -99,9 +143,17 @@ function changeTexto(newTexto) {
                 currenttext = document.createTextNode("cell is row " + j + ", column " + i);
                 // appends the Text Node we created into the cell <td>
                 mycurrent_cell.appendChild(currenttext);
+
+                if (i % 2 == 0) {
+                  mycurrent_cell.className="caja2" 
+                }
+                else { 
+                  mycurrent_cell.className="caja3"
+                }
                 // appends the cell <td> into the row <tr>
                 mycurrent_row.appendChild(mycurrent_cell);
             }
+           
             // appends the row <tr> into <tbody>
             mytablebody.appendChild(mycurrent_row);
         }
@@ -112,5 +164,87 @@ function changeTexto(newTexto) {
         mybody.appendChild(mytable);
         // sets the border attribute of mytable to 2;
         mytable.setAttribute("border","2");
+        
     }
+
+    function poneretiqueta(forma, titulo){
+      var t1 = document.createElement("label");      
+      t1.innerHTML = titulo;     
+      forma.appendChild(t1);
+    }
+
+    function generaForma(){
+
+      var forma = document.getElementById("mforma");
+      //console.log(texto);
+      var titulo ="Nombres y apellidos: "
+      poneretiqueta(forma, titulo);
+
+      var entrada1 = document.createElement("input");
+      entrada1.placeholder = "Digite nombres y apellidos";     
+      entrada1.value = "";     
+      entrada1.name ="nombre";
+      entrada1.type ="text";
+      entrada1.id="mnombre";
+      entrada1.className="caja4"
+      forma.appendChild(entrada1);
+
+      var t1 = document.createElement("br");      
+      t1.innerHTML = titulo;     
+      forma.appendChild(t1);
+
+      titulo ="Correo Electronico: "
+      poneretiqueta(forma, titulo);
+      var entrada2 = document.createElement("input");
+      entrada2.placeholder = "Digite Correo Electronico";     
+      entrada2.value = "";     
+      entrada2.name ="correo";      
+      entrada2.type ="email";
+      entrada2.id="mcorreo"
+      entrada2.className="caja4"
+      forma.appendChild(entrada2);
+
+      var t1 = document.createElement("br");      
+      t1.innerHTML = titulo;     
+      forma.appendChild(t1);
+
+      titulo ="Fecha de Cita: "
+      poneretiqueta(forma, titulo);
+      var entrada3 = document.createElement("input");
+      entrada3.value = "";     
+      entrada3.name ="fechahora";
+      entrada3.type ="datetime-local";
+      entrada3.id="mfechahora"
+      entrada3.className="caja4"
+      forma.appendChild(entrada3);
+
+      var t1 = document.createElement("br");      
+      t1.innerHTML = titulo;     
+      forma.appendChild(t1);
+    }
+
+ function myproducto(nombre, precio, estado){
+  alert(nombre, precio, estado)
+  /*const producto = {
+    nombreProducto: nombre,
+    precio : precio,
+    disponible : precio
+    }
+*/
+ }
+
+    function generaRegistro(){
+   /* const producto = {
+      nombreProducto: "Monitor 20 Pulgadas",
+      precio : 300,
+      disponible : true
+      }
+  
+    const medidas = {
+      peso: '1kg',
+      medida: '1m'
+    }
+*/
+
+   } 
 
