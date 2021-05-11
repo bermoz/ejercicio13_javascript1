@@ -223,8 +223,72 @@ function llenarparrafos2(){
       forma.appendChild(t1);
     }
 
+// Ultima clase 03/05/2021
+
+// Visor de fotos
+function muestra(num) {
+  var imagen = document.images[num].src  
+ // console.log(imagen)
+  var comentario = document.images[num].alt
+ // console.log(comentario)
+  var grande = document.images["pantalla"]
+  var texto = document.getElementById("descripcion")
+  grande.src = imagen
+  texto.innerHTML = comentario
+  }
+
+//Revisar MODELO DOM fuente URL: https://aprende-web.net/javascript/js5_1.php
+function info() { 
+  var texto = document.getElementById("cajaS1");
+  var t1 = document.createElement("h3");      
+  titulo="Usted recibirá información sobre los siguientes temas:";
+  t1.innerHTML = titulo;     
+  texto.appendChild(t1);
+
+   if (document.suscripcion.deportes.checked == true) {
+     deportes = "<h4>" + document.suscripcion.deportes.value + "</h4>";
+     }
+  else { deportes = "" }	
+  if (document.suscripcion.noticias.checked == true) {
+     noticias = "<h4>" + document.suscripcion.noticias.value + "</h4>";
+     }
+  else { noticias = "" }	
+  if (document.suscripcion.economia.checked == true) {
+     economia = "<h4>" + document.suscripcion.economia.value + "</h4>";
+     }	
+  else { economia = "" }	
+  if (document.suscripcion.cultura.checked == true) {
+     cultura = "<h4>" + document.suscripcion.cultura.value + "</h4>";
+     }
+  else { cultura = "" }	
+  if (document.suscripcion.medioambiente.checked == true) {
+     medioambiente = "<h4>" + document.suscripcion.medioambiente.value + "</h4>";
+     }
+  else { medioambiente = "" }
+ // console.log(deportes + noticias + economia + cultura + medioambiente)
+  texto.innerHTML += deportes + noticias + economia + cultura + medioambiente
+ }
+
+function validardatos(nombre, precio){
+  
+  if(precio.value == null)
+  {
+    alert("El precio no puede estar Vacio");
+  }
+  if(nombre.value == null){
+    alert("El nombre no puede estar Vacio");
+  }
+}
+
  function myproducto(nombre, precio, estado){
-  alert(nombre, precio, estado)
+  alert(nombre.value + " " + precio.value + " " + estado.value);
+  console.log(precio);
+  //validardatos(nombre, precio);
+  if(precio.length == 0 )
+  {
+    alert("El precio no puede estar Vacio");
+  }
+
   /*const producto = {
     nombreProducto: nombre,
     precio : precio,

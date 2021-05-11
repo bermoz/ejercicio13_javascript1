@@ -108,21 +108,54 @@
     <div class="caja">
       <div id="mforma"><h1>Formulario Inscripción</h1>
       </div>
-      <button onclick="generaForma();">Crear Fecha</button>
+      <button onclick="generaForma();">Crear Formulario</button>
     </div>
 
+    <div class="caja">
+      <h1>Acceso a imágenes. Pulsa sobre la imagen para verla en grande</h1>
+      <div id="visor">
+        <h3 id="descripcion">Barca de pesca</h3>
+        <img src="https://aprende-web.net/javascript/objetos/muestra1.jpg" alt="Barca de pesca" id="pantalla"/>
+      </div>
+      <div id="muestras">
+        <img onclick="muestra(1)" name="primera" src="https://aprende-web.net/javascript/objetos/muestra1.jpg" alt="Barca de pesca" />
+        <img onclick="muestra(2)" src="https://aprende-web.net/javascript/objetos/muestra2.jpg" alt="Casa de campo" />
+        <img onclick="muestra(3)" src="https://aprende-web.net/javascript/objetos/muestra3.jpg" alt="Papagayos" />
+        <img onclick="muestra(4)" src="https://aprende-web.net/javascript/objetos/muestra4.jpg" alt="Prueba de motocrós" />
+      </div>
+    </div>
+
+<div class="caja">
+  <form name="suscripcion" action="#">
+    <h2>Temas que me interesan</h2>
+    <input  type="checkbox" name="deportes" value="Noticias Deportes" />
+         <label for="deportes">Deportes</label><br/>
+    <input type="checkbox" name="noticias" value="Noticias" />
+         <label for="noticias">Noticias</label><br/>
+    <input type="checkbox" name="economia" value="Eventos Economia" />
+         <label for="economia">Economía</label><br/>
+    <input type="checkbox" name="cultura" value ="Cultura" />
+         <label for="cultura">Cultura</label><br/>
+    <input type="checkbox" name="medioambiente" value="Medio Ambiente" />
+    <label for="medioambiente">Medio Ambiente</label><br/><br/>
+    <input  type="button"  name="ver" value="Ver Temas" onclick="info()" />
+  </form>
+    <div id="cajaS1">
+
+    </div>
+</div>
 
     <div class="caja">
-     <form action="">
+     <form name="miproducto" action="">
       <div id="mregistro"><h1>Registro de Datos</h1>
       </div>
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre"></input><br>
+      <label for="producto">Nombre</label>
+      <input type="text" id="producto" name="mproducto"></input><br>
       <label for="precio">Precio</label>
-      <input type="text" id="precio"></input><br>
+      <input type="text" id="precio" name="mprecio"></input><br>
       <label for="estado">Estado</label>
-      <input type="radio" id="nombre"></input><br>
-      <button onclick="myproducto(nombre ,precio,estado);">Crear y llenar Registro de datos</button>
+      <input type="radio" id="estado" name="mestado"></input><br>
+      <button onclick="myproducto(mproducto, mprecio, mestado);">Crear y llenar Registro de datos</button>
     </form>
     </div>
 
